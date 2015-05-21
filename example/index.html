@@ -2,11 +2,14 @@
 <html>
 <head>
 	<title>Test page for sharing</title>
+	<meta name="description" content="Page description" />
 	<style>
 		/* Few styles :) */
 		.share-btn > a {
 			border: 1px solid #ccc;
 			padding: 5px;
+			font-size: 12px;
+			font-family: Verdana, Arial;
 		}
 		.share-btn > a:hover {
 			cursor: pointer;
@@ -18,14 +21,18 @@
 	<p>Share this page with:</p>
 
 	<!-- data-url="" data-title="" data-desc="" -->
-	<div class="share-btn" >
+
+
+	<div class="share-btn" data-url="https://github.com/wcoder/share-buttons">
 		<a class="btn-vk" data-id="vk">VK</a>
 		<a class="btn-facebook" data-id="fb">Facebook</a>
 		<a class="btn-twitter" data-id="tw">Twitter</a>
-		<a class="btn-google-plus" data-id="gp">Google+</a>
-		<a class="btn-linkedin" data-id="in">LinkedIn</a>
 		<a class="btn-mail" data-id="mail">EMail</a>
 	</div>
+
+
+	<!-- <a class="btn-google-plus" data-id="gp">Google+</a>
+		<a class="btn-linkedin" data-id="in">LinkedIn</a> -->
 
 
 	<script src="../src/share-buttons.js"></script>

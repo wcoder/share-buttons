@@ -4,8 +4,8 @@
 	var FB_LINK = 'https://www.facebook.com/sharer/sharer.php?u=';
 	var VK_LINK = 'https://vk.com/share.php?url={0}&description={1}. {2}';
 	var TW_LINK = 'https://twitter.com/intent/tweet?url=';
-	var GP_LINK = 'https://plus.google.com/share?url=';
-	var IN_LINK = 'https://www.linkedin.com/shareArticle?mini=true&url=';
+	//var GP_LINK = 'https://plus.google.com/share?url=';
+	//var IN_LINK = 'https://www.linkedin.com/shareArticle?mini=true&url=';
 
 	// from http://evgeniy.pakalo.name/post/49
 	var _F = function(str, args){
@@ -21,10 +21,11 @@
 		this.init = function() {
 			var _this = this,
 				share = document.querySelectorAll('.share-btn');
+			
 			for (var i = 0, l = share.length; i < l; i++) {
-				var url = share[i].getAttribute('data-url') || location.href,
-					title = share[i].getAttribute('data-title') || document.title, 
-					desc = share[i].getAttribute('data-desc') || ' ',
+				var url = this.getUrl(share[i]),
+					title = this.getTitle(share[i]),
+					desc = this.getDesc(share[i]),
 					el = share[i].querySelectorAll('a');
 
 				for (var a = 0, al = el.length; a < al; a++) {
@@ -39,6 +40,19 @@
 					}
 				}
 			}
+		};
+
+		this.getUrl = function (share) {
+			return share.getAttribute('data-url') || location.href || ' ';
+		};
+
+		this.getTitle = function (share) {
+			return share.getAttribute('data-title') || document.title || ' ';
+		};
+
+		this.getDesc = function (share) {
+			var metaDesc = document.querySelector('meta[name=description]');
+			return share.getAttribute('data-desc') || (metaDesc && metaDesc.getAttribute('content')) || ' ';
 		};
 
 		this.addEventListener = function(el, eventName, opt) {
@@ -84,13 +98,13 @@
 					this.popupCenter(TW_LINK + url + text, this.title, this.width, this.height);
 					break;
 
-				case 'gp':
-					this.popupCenter(GP_LINK + url, this.title, this.width, this.height);
-					break;
+				// case 'gp':
+				// 	this.popupCenter(GP_LINK + url, this.title, this.width, this.height);
+				// 	break;
 
-				case 'in':
-					this.popupCenter(IN_LINK + url, this.title, this.width, this.height);
-					break;
+				// case 'in':
+				// 	this.popupCenter(IN_LINK + url, this.title, this.width, this.height);
+				// 	break;
 
 				case 'mail':
 					var text = title || desc || '';
@@ -149,11 +163,8 @@
 	};
 
 
-
-	// start
-	var sb = new ShareButtons();
-	sb.init();
-
+	// start	
+	new ShareButtons().init();
 }());
 
 	
