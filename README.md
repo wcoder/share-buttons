@@ -1,4 +1,4 @@
-# share-buttons ![version](http://img.shields.io/badge/release-v1.0.0-brightgreen.svg?style=flat)
+# share-buttons [![version](http://img.shields.io/badge/release-v1.0.0-brightgreen.svg?style=flat)](https://github.com/wcoder/share-buttons/archive/master.zip)
 
 Simple social buttons for your site.
 
