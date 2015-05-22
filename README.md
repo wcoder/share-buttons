@@ -1,4 +1,4 @@
-# share-buttons
+# share-buttons ![version](http://img.shields.io/badge/release-v1.0.0-brightgreen.svg?style=flat)
 
 Simple social buttons for your site.
 
@@ -50,4 +50,4 @@ Styles - full customization.
 
 ----
 
-&copy; 2015 - Yauheni Pakala - MIT
+&copy; 2015 - Yauheni Pakala [![license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/wcoder/share-buttons/blob/master/LICENSE)
