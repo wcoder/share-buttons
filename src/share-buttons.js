@@ -29,10 +29,8 @@
 			var i,
 				share = document.querySelectorAll('.share-btn');
 
-			for (i in share) {
-				if (share.hasOwnProperty(i)) {
-					this.initForElement(share[i]);
-				}
+			for (i = share.length; i--;) {
+				this.initForElement(share[i]);
 			}
 		};
 
@@ -43,15 +41,13 @@
 			var i,
 				a = el.querySelectorAll('a');
 
-			for (i in a) {
-				if (a.hasOwnProperty(i)) {
-					this.prepareLink(a[i], {
-						id: '',
-						url: this.getUrl(el),
-						title: this.getTitle(el),
-						desc: this.getDesc(el)
-					});
-				}
+			for (i = a.length; i--;) {
+				this.prepareLink(a[i], {
+					id: '',
+					url: this.getUrl(el),
+					title: this.getTitle(el),
+					desc: this.getDesc(el)
+				});
 			}
 		};
 		
