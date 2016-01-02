@@ -2,6 +2,8 @@
 
 Simple social buttons for your site.
 
+### [Demo](https://wcoder.github.io/share-buttons/)
+
 ## Browser support
 * Google Chrome (latest)
 * Mozilla Firefox (latest)
