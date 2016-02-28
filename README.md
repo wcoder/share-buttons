@@ -5,10 +5,11 @@ Simple social buttons for your site.
 ### [Demo](https://wcoder.github.io/share-buttons/)
 
 ## Browser support
-* Google Chrome (latest)
-* Mozilla Firefox (latest)
-* Opera (latest)
-* Internet Explorer 9+
+* Google Chrome
+* Mozilla Firefox 3.5+
+* Opera 10+
+* Safari 3.2+
+* IE 8+
 
 ## Install
 Include `share-buttons.js` in the end of page:
