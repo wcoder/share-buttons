@@ -15,7 +15,7 @@
 			TW_LINK_FORMAT = 'https://twitter.com/intent/tweet?url=',
 			MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
 
-			// from http://evgeniy.pakalo.name/post/49
+			// from https://wcoder.github.io/notes/string-format-for-string-formating-in-javascript
 			stringFormat = function (str, args) {
 				return str.replace(/\{(\d+)\}/g, function (m, n) {
 					return args[n] || m;
