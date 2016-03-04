@@ -39,7 +39,7 @@ Added styles:
 ```
 Profit!!
 
-## Customization
+## Customizing
 Custom 'url', 'title', 'description':
 ``` html
 <div class="share-btn" data-url="https://..." data-title="..." data-desc="...">
