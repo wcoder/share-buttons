@@ -10,16 +10,27 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wcoder/share-buttons.git"
+    "url": "git+https://github.com/wcoder/share-buttons.git"
   },
   "author": "Yauheni Pakala <evgeniy.pakalo@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/wcoder/share-buttons/issues"
   },
-  "homepage": "https://github.com/wcoder/share-buttons",
+  "homepage": "https://wcoder.github.io/share-buttons",
   "devDependencies": {
-    "gulp": "^3.8.11",
-    "gulp-uglify": "^1.2.0"
-  }
+    "gulp": "^4.0.0",
+    "gulp-uglify": "^3.0.0"
+  },
+  "main": "dist/share-buttons.js",
+  "dependencies": {},
+  "keywords": [
+    "social",
+    "buttons",
+    "share",
+    "facebook",
+    "vk",
+    "twitter",
+    "email"
+  ]
 }
