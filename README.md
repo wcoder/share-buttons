@@ -2,7 +2,7 @@
 
 Simple social buttons for your site.
 
-### [Demo](https://wcoder.github.io/share-buttons/)
+## [Demo](https://wcoder.github.io/share-buttons/)
 
 ## Browser support
 
@@ -16,10 +16,16 @@ Simple social buttons for your site.
 
 ## Install
 
-Include `share-buttons.js` in the end of page:
+NPM:
+
+```sh
+npm i share-buttons
+```
+
+include `share-buttons.js` in the end of page:
 
 ``` html
-<script src="../dist/share-buttons.js"></script>
+<script src="<path>/dist/share-buttons.js"></script>
 ```
 
 Paste this html on the page:
