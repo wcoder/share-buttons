@@ -13,6 +13,7 @@
         var FB_LINK_FORMAT = 'https://www.facebook.com/sharer/sharer.php?u=',
             VK_LINK_FORMAT = 'https://vk.com/share.php?url={0}&description={1}. {2}',
             TW_LINK_FORMAT = 'https://twitter.com/intent/tweet?url=',
+            TG_LINK_FORMAT = 'https://telegram.me/share/url?url={0}&text={1}',
             MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
 
             // from https://wcoder.github.io/notes/string-format-for-string-formating-in-javascript
@@ -20,6 +21,10 @@
                 return str.replace(/\{(\d+)\}/g, function (m, n) {
                     return args[n] || m;
                 });
+            },
+
+            mergeForTitle = function (texts) {
+                return texts.join(' - ');
             };
 
         /**
@@ -128,6 +133,15 @@
                 }
 
                 this.popupCenter(TW_LINK_FORMAT + url + text, titleDef);
+                break;
+
+            case 'tg':
+                this.popupCenter(
+                    stringFormat(TG_LINK_FORMAT, [
+                        url,
+                        mergeForTitle([title, desc])
+                    ]),
+                    titleDef);
                 break;
 
             case 'mail':
