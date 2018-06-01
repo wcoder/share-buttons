@@ -35,6 +35,7 @@ Paste this html on the page:
     <a class="btn-vk" data-id="vk">VK</a>
     <a class="btn-facebook" data-id="fb">Facebook</a>
     <a class="btn-twitter" data-id="tw">Twitter</a>
+    <a class="btn-telegram" data-id="tg">Telegram</a>
     <a class="btn-mail" data-id="mail">EMail</a>
 </div>
 ```
@@ -64,6 +65,7 @@ Custom 'url', 'title', 'description':
     <a class="btn-vk" data-id="vk">VK</a>
     <a class="btn-facebook" data-id="fb">Facebook</a>
     <a class="btn-twitter" data-id="tw">Twitter</a>
+    <a class="btn-telegram" data-id="tg">Telegram</a>
     <a class="btn-mail" data-id="mail">EMail</a>
 </div>
 ```
@@ -76,10 +78,11 @@ If your using [Font-Awesome](https://github.com/FortAwesome/Font-Awesome):
 
 ```html
 <div class="share-btn" data-url="https://..." data-title="..." data-desc="...">
-    <a class="btn-vk" data-id="vk"><i class="fa fa-vk"></i> VK</a>
-    <a class="btn-facebook" data-id="fb"><i class="fa fa-facebook-square"></i> Facebook</a>
-    <a class="btn-twitter" data-id="tw"><i class="fa fa-twitter"></i> Twitter</a>
-    <a class="btn-mail" data-id="mail"><i class="fa fa-envelope-o"></i> EMail</a>
+    <a class="btn-vk" data-id="vk"><i class="fab fa-vk"></i> VK</a>
+    <a class="btn-facebook" data-id="fb"><i class="fab fa-facebook-square"></i> Facebook</a>
+    <a class="btn-twitter" data-id="tw"><i class="fab fa-twitter"></i> Twitter</a>
+    <a class="btn-telegram" data-id="tg"><i class="fab fa-telegram"></i> Telegram</a>
+    <a class="btn-mail" data-id="mail"><i class="fas fa-at"></i> EMail</a>
 </div>
 ```
 
