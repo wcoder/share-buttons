@@ -1,8 +1,16 @@
-# share-buttons [![version](http://img.shields.io/badge/release-v1.0.0-brightgreen.svg?style=flat)](https://github.com/wcoder/share-buttons/archive/master.zip) [![license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](https://github.com/wcoder/share-buttons/blob/master/LICENSE)
+# Share Buttons [![npm](https://img.shields.io/npm/v/share-buttons.svg)](https://www.npmjs.com/package/share-buttons) ![license](https://img.shields.io/github/license/wcoder/share-buttons.svg)
 
 Simple social buttons for your site.
 
 ## [Demo](https://wcoder.github.io/share-buttons/)
+
+## Share via
+
+* Facebook
+* VK
+* Twitter
+* Telegram
+* EMail
 
 ## Browser support
 
