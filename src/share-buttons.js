@@ -14,11 +14,13 @@
             VK_LINK_FORMAT = 'https://vk.com/share.php?url={0}&title={1}',
             TW_LINK_FORMAT = 'https://twitter.com/intent/tweet?url={0}&text={1}',
             TG_LINK_FORMAT = 'https://t.me/share/url?url={0}&text={1}',
+            POCKET_LINK_FORMAT = 'https://getpocket.com/edit?url={0}&title={1}',
             MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
             FB_CLASS_NAME = 'fb',
             VK_CLASS_NAME = 'vk',
             TW_CLASS_NAME = 'tw',
             TG_CLASS_NAME = 'tg',
+            PK_CLASS_NAME = 'pk',
             MAIL_CLASS_NAME = 'mail',
 
             // from https://wcoder.github.io/notes/string-format-for-string-formating-in-javascript
@@ -148,6 +150,15 @@
             case TG_CLASS_NAME:
                 this.popupCenter(
                     stringFormat(TG_LINK_FORMAT, [
+                        url,
+                        mergeForTitle([title, desc])
+                    ]),
+                    titleDef);
+                break;
+
+            case PK_CLASS_NAME:
+                this.popupCenter(
+                    stringFormat(POCKET_LINK_FORMAT, [
                         url,
                         mergeForTitle([title, desc])
                     ]),
