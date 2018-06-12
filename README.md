@@ -10,6 +10,7 @@ Simple social buttons for your site.
 * VK
 * Twitter
 * Telegram
+* Pocket
 * EMail
 
 ## Browser support
