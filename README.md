@@ -4,19 +4,6 @@ Simple social buttons for your site.
 
 ## [Demo](https://wcoder.github.io/share-buttons/)
 
-## Share via
-
-* Facebook
-* VK
-* Twitter
-* Telegram
-* Pocket
-* Reddit
-* Evernote
-* LinkedIn
-* Pinterest
-* EMail
-
 ## Browser support
 
 * Google Chrome
@@ -68,6 +55,21 @@ Added styles:
 ```
 
 Profit!!
+
+## Share via
+
+Network   | `data-id`
+----------|---------
+Facebook  | fb
+VK        | vk
+Twitter   | tw
+Telegram  | tg
+Pocket    | pk
+Reddit    | re
+Evernote  | ev
+LinkedIn  | in
+Pinterest | pi
+EMail     | mail
 
 ## Customizing
 
