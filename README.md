@@ -1,6 +1,6 @@
 # Share Buttons [![npm](https://img.shields.io/npm/v/share-buttons.svg)](https://www.npmjs.com/package/share-buttons) ![license](https://img.shields.io/github/license/wcoder/share-buttons.svg)
 
-Simple social buttons for your site.
+Simple, powerful, customizable and super lightweight (1 Kb Gzip) social buttons for your site.
 
 ## [Demo](https://wcoder.github.io/share-buttons/)
 
