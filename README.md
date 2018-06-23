@@ -14,6 +14,7 @@ Simple social buttons for your site.
 * Reddit
 * Evernote
 * LinkedIn
+* Pinterest
 * EMail
 
 ## Browser support
