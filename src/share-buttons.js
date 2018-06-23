@@ -17,6 +17,7 @@
             POCKET_LINK_FORMAT = 'https://getpocket.com/edit?url={0}&title={1}',
             RE_LINK_FORMAT = 'https://reddit.com/submit/?url={0}',
             EV_LINK_FORMAT = 'https://www.evernote.com/clip.action?url={0}&t={1}',
+            IN_LINK_FORMAT = 'https://www.linkedin.com/shareArticle?mini=true&url={0}&title={1}&summary={2}&source={0}',
             MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
             FB_CLASS_NAME = 'fb',
             VK_CLASS_NAME = 'vk',
@@ -25,6 +26,7 @@
             PK_CLASS_NAME = 'pk',
             RE_CLASS_NAME = 're',
             EV_CLASS_NAME = 'ev',
+            IN_CLASS_NAME = 'in',
             MAIL_CLASS_NAME = 'mail',
 
             // from https://wcoder.github.io/notes/string-format-for-string-formating-in-javascript
@@ -178,6 +180,16 @@
             case EV_CLASS_NAME:
                 this.popupCenter(
                     stringFormat(EV_LINK_FORMAT, [url, title]),
+                    titleDef);
+                break;
+
+            case IN_CLASS_NAME:
+                this.popupCenter(
+                    stringFormat(IN_LINK_FORMAT, [
+                        url,
+                        title,
+                        mergeForTitle([title, desc])
+                    ]),
                     titleDef);
                 break;
 

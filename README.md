@@ -13,6 +13,7 @@ Simple social buttons for your site.
 * Pocket
 * Reddit
 * Evernote
+* LinkedIn
 * EMail
 
 ## Browser support
