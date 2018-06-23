@@ -69,6 +69,7 @@ Reddit    | re
 Evernote  | ev
 LinkedIn  | in
 Pinterest | pi
+Skype     | sk
 EMail     | mail
 
 ## Customizing
