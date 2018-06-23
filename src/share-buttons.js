@@ -1,11 +1,11 @@
-(function (window, document) {
+(function (w, d) {
     'use strict';
 
     /**
      * Class to display the buttons of social networks.
      *
      * @author Yauheni Pakala <https://wcoder.github.io>
-     * @version 1.1
+     * @version 1.2
      * @license MIT
      */
     function ShareButtons() {
@@ -31,88 +31,103 @@
             IN_CLASS_NAME = 'in',
             PI_CLASS_NAME = 'pi',
             SK_CLASS_NAME = 'sk',
-            MAIL_CLASS_NAME = 'mail',
-
-            // from https://wcoder.github.io/notes/string-format-for-string-formating-in-javascript
-            stringFormat = function (str, args) {
-                return str.replace(/\{(\d+)\}/g, function (m, n) {
-                    return args[n] || m;
-                });
-            },
-
-            mergeForTitle = function (texts) {
-                return texts.join(' - ');
-            };
+            MAIL_CLASS_NAME = 'mail';
 
         /**
-         * Method for initialize class for all elements
+         * Method for get string in the special format by arguments
+         * from https://wcoder.github.io/notes/string-format-for-string-formating-in-javascript
+         * @param {string} str
+         * @param {Array} args
          */
-        this.init = function () {
-            var i, share = document.querySelectorAll('.share-btn');
+        var stringFormat = function (str, args) {
+            return str.replace(/\{(\d+)\}/g, function (m, n) {
+                return args[n] || m;
+            });
+        };
 
-            for (i = share.length; i--;) {
-                this.initForElement(share[i]);
-            }
+        /**
+         * Method for merge array of strings to the special format string
+         * @param {Array} texts
+         */
+        var mergeForTitle = function (texts) {
+            return texts.join(' - ');
         };
 
         /**
          * Method for initialize class for all elements
          */
-        this.initForElement = function (el) {
+        this.i = function () {
+            var i, share = d.querySelectorAll('.share-btn');
+
+            for (i = share.length; i--;) {
+                initForElement(share[i]);
+            }
+        };
+
+        /**
+         * Method for initialize class for all elements
+         * @param {HTMLElement} el Parent container
+         */
+        var initForElement = function (el) {
             var i, a = el.querySelectorAll('a');
 
             for (i = a.length; i--;) {
-                this.prepareLink(a[i], {
+                prepareLink(a[i], {
                     id: '',
-                    url: this.getUrl(el),
-                    title: this.getTitle(el),
-                    desc: this.getDesc(el)
+                    url: getUrl(el),
+                    title: getTitle(el),
+                    desc: getDesc(el)
                 });
             }
         };
 
         /**
          * Method for handling click event to link
+         * @param {HTMLElement} el
+         * @param {Object} options
          */
-        this.prepareLink = function (el, options) {
-            var that = this;
-
-            options.id = el.getAttribute('data-id');
+        var prepareLink = function (el, options) {
+            options.id = getAttribute(el, 'data-id');
             if (options.id) {
-                that.addEventListener(el, 'click', options);
+                addEventListener(el, 'click', options);
             }
         };
 
         /**
          * Method for getting url from page or options
+         * @param {HTMLElement} share
          */
-        this.getUrl = function (share) {
-            return share.getAttribute('data-url') || location.href || ' ';
+        var getUrl = function (share) {
+            return getAttribute(share, 'data-url') || location.href || ' ';
         };
 
         /**
          * Method for getting title from page or options
+         * @param {HTMLElement} share
          */
-        this.getTitle = function (share) {
-            return share.getAttribute('data-title') || document.title || ' ';
+        var getTitle = function (share) {
+            return getAttribute(share, 'data-title') || d.title || ' ';
         };
 
         /**
          * Method for getting description from page or options
+         * @param {HTMLElement} share
          */
-        this.getDesc = function (share) {
-            var metaDesc = document.querySelector('meta[name=description]');
-            return share.getAttribute('data-desc') || (metaDesc && metaDesc.getAttribute('content')) || ' ';
+        var getDesc = function (share) {
+            var metaDesc = d.querySelector('meta[name=description]');
+            return getAttribute(share, 'data-desc') || (metaDesc && getAttribute(metaDesc, 'content')) || ' ';
         };
 
-        /**
-         * Method for attaching event to the element
-         */
-        this.addEventListener = function (el, eventName, opt) {
-            var that = this,
-                handler = function () {
-                    that.share(opt.id, opt.url, opt.title, opt.desc);
-                };
+       /**
+        * Method for attaching event to the element
+        * @param {HTMLElement} el
+        * @param {string} eventName
+        * @param {Object} opt
+        */
+        var addEventListener = function (el, eventName, opt) {
+            var handler = function () {
+                share(opt.id, opt.url, opt.title, opt.desc);
+            };
 
             if (el.addEventListener) {
                 el.addEventListener(eventName, handler);
@@ -124,23 +139,44 @@
         };
 
         /**
-         * Method for handling chosen links
+         * Method for get attribute value by name
+         * @param {HTMLElement} el
+         * @param {string} attrName
          */
-        this.share = function (id, urlDef, titleDef, descDef) {
-            var url = encodeURIComponent(urlDef),
-                desc = encodeURIComponent(descDef),
-                title = encodeURIComponent(titleDef),
+        var getAttribute = function (el, attrName) {
+            return el.getAttribute(attrName);
+        };
+
+        /**
+         * Method for encoding text to URL format
+         * @param {string} text
+         */
+        var encode = function (text) {
+            return encodeURIComponent(text);
+        };
+
+        /**
+         * Method for handling chosen links
+         * @param {string} id
+         * @param {string} urlDef
+         * @param {string} titleDef
+         * @param {string} descDef
+         */
+        var share = function (id, urlDef, titleDef, descDef) {
+            var url = encode(urlDef),
+                desc = encode(descDef),
+                title = encode(titleDef),
                 text = title || desc || '';
 
             switch (id) {
             case FB_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(FB_LINK_FORMAT, [url]),
                     titleDef);
                 break;
 
             case VK_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(VK_LINK_FORMAT, [
                         url,
                         mergeForTitle([title, desc])
@@ -149,7 +185,7 @@
                 break;
 
             case TW_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(TW_LINK_FORMAT, [
                         url,
                         mergeForTitle([title, desc])
@@ -158,7 +194,7 @@
                 break;
 
             case TG_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(TG_LINK_FORMAT, [
                         url,
                         mergeForTitle([title, desc])
@@ -167,7 +203,7 @@
                 break;
 
             case PK_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(POCKET_LINK_FORMAT, [
                         url,
                         mergeForTitle([title, desc])
@@ -176,19 +212,19 @@
                 break;
 
             case RE_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(RE_LINK_FORMAT, [url]),
                     titleDef);
                 break;
 
             case EV_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(EV_LINK_FORMAT, [url, title]),
                     titleDef);
                 break;
 
             case IN_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(IN_LINK_FORMAT, [
                         url,
                         title,
@@ -198,7 +234,7 @@
                 break;
 
             case PI_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(PI_LINK_FORMAT, [
                         url,
                         mergeForTitle([title, desc])
@@ -207,7 +243,7 @@
                 break;
 
             case SK_CLASS_NAME:
-                this.popupCenter(
+                popupCenter(
                     stringFormat(SK_LINK_FORMAT, [
                         url,
                         mergeForTitle([title, desc])
@@ -236,18 +272,19 @@
 
         /**
          * Method for opening popup window
+         * @param {string} url
          */
-        this.popupCenter = function (url, title) {
-            var w = 600,
-                h = 400,
-                dualScreenLeft = typeof window.screenLeft !== 'undefined' ? window.screenLeft : screen.left,
-                dualScreenTop = typeof window.screenTop !== 'undefined' ? window.screenTop : screen.top,
-                width = window.innerWidth || document.documentElement.clientWidth || screen.width,
-                height = window.innerHeight || document.documentElement.clientHeight || screen.height,
-                left = ((width / 2) - (w / 2)) + dualScreenLeft,
-                top = ((height / 3) - (h / 3)) + dualScreenTop,
+        var popupCenter = function (url, title) {
+            var _w = 600,
+                _h = 400,
+                dualScreenLeft = typeof w.screenLeft !== 'undefined' ? w.screenLeft : screen.left,
+                dualScreenTop = typeof w.screenTop !== 'undefined' ? w.screenTop : screen.top,
+                width = w.innerWidth || d.documentElement.clientWidth || screen.width,
+                height = w.innerHeight || d.documentElement.clientHeight || screen.height,
+                left = ((width / 2) - (_w / 2)) + dualScreenLeft,
+                top = ((height / 3) - (_h / 3)) + dualScreenTop,
                 windowFormat = 'resizable,toolbar=yes,location=yes,scrollbars=yes,menubar=yes,width={0},height={1},top={2},left={3}',
-                newWindow = window.open(url, '', stringFormat(windowFormat, [w, h, top, left]));
+                newWindow = w.open(url, '', stringFormat(windowFormat, [_w, _h, top, left]));
 
             if (newWindow !== null && newWindow.focus) {
                 newWindow.focus();
@@ -256,6 +293,6 @@
     }
 
     // start
-    new ShareButtons().init();
+    new ShareButtons().i();
 
 }(window, document));

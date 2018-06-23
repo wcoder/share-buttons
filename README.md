@@ -104,4 +104,4 @@ If your using [Font-Awesome](https://github.com/FortAwesome/Font-Awesome):
 
 ----
 
-&copy; 2015 - Yauheni Pakala
+&copy; 2015 - 2018 Yauheni Pakala
