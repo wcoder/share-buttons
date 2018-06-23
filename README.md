@@ -12,6 +12,7 @@ Simple social buttons for your site.
 * Telegram
 * Pocket
 * Reddit
+* Evernote
 * EMail
 
 ## Browser support
