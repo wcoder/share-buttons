@@ -70,7 +70,13 @@ Evernote  | ev
 LinkedIn  | in
 Pinterest | pi
 Skype     | sk
+WhatsApp  | wa
+Odnoklassniki | ok
+Tumblr    | tu
+Hacker News | hn
+Xing      | xi
 EMail     | mail
+Print     | print
 
 ## Customizing
 
@@ -104,4 +110,4 @@ If your using [Font-Awesome](https://github.com/FortAwesome/Font-Awesome):
 
 ----
 
-&copy; 2015 - 2018 Yauheni Pakala
+&copy; 2015 - 2019 Yauheni Pakala
