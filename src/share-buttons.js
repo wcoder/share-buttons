@@ -21,6 +21,7 @@
             PI_LINK_FORMAT = 'https://pinterest.com/pin/create/button/?url={0}&media={0}&description={1}',
             SK_LINK_FORMAT = 'https://web.skype.com/share?url={0}&source=button&text={1}',
             WA_LINK_FORMAT = 'whatsapp://send?text={0}%20{1}',
+            OK_LINK_FORMAT = 'https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl={0}',
             MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
             FB_CLASS_NAME = 'fb',
             VK_CLASS_NAME = 'vk',
@@ -33,6 +34,7 @@
             PI_CLASS_NAME = 'pi',
             SK_CLASS_NAME = 'sk',
             WA_CLASS_NAME = 'wa',
+            OK_CLASS_NAME = 'ok',
             MAIL_CLASS_NAME = 'mail';
 
         /**
@@ -259,6 +261,12 @@
                         mergeForTitle([title, desc]),
                         url
                     ]),
+                    titleDef);
+                break;
+
+            case OK_CLASS_NAME:
+                popupCenter(
+                    stringFormat(OK_LINK_FORMAT, [ url ]),
                     titleDef);
                 break;
 
