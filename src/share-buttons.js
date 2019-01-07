@@ -41,7 +41,8 @@
             TU_CLASS_NAME = 'tu',
             HN_CLASS_NAME = 'hn',
             XI_CLASS_NAME = 'xi',
-            MAIL_CLASS_NAME = 'mail';
+            MAIL_CLASS_NAME = 'mail',
+            PRINT_CLASS_NAME = 'print';
 
         /**
          * Method for get string in the special format by arguments
@@ -315,6 +316,10 @@
                 }
 
                 location.href = stringFormat(MAIL_LINK_FORMAT, [title, titleDef, text, url]);
+                break;
+
+            case PRINT_CLASS_NAME:
+                window.print();
                 break;
 
             default:
