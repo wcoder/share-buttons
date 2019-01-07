@@ -24,6 +24,7 @@
             OK_LINK_FORMAT = 'https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl={0}',
             TU_LINK_FORMAT = 'https://www.tumblr.com/widgets/share/tool?posttype=link&title={0}&caption={0}&content={1}&canonicalUrl={1}&shareSource=tumblr_share_button',
             HN_LINK_FORMAT = 'https://news.ycombinator.com/submitlink?t={0}&u={1}',
+            XI_LINK_FORMAT = 'https://www.xing.com/app/user?op=share;url={0};title={1}',
             MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
             FB_CLASS_NAME = 'fb',
             VK_CLASS_NAME = 'vk',
@@ -39,6 +40,7 @@
             OK_CLASS_NAME = 'ok',
             TU_CLASS_NAME = 'tu',
             HN_CLASS_NAME = 'hn',
+            XI_CLASS_NAME = 'xi',
             MAIL_CLASS_NAME = 'mail';
 
         /**
@@ -288,6 +290,15 @@
                     stringFormat(HN_LINK_FORMAT, [
                         mergeForTitle([title, desc]),
                         url
+                    ]),
+                    titleDef);
+                break;
+
+            case XI_CLASS_NAME:
+                popupCenter(
+                    stringFormat(XI_LINK_FORMAT, [
+                        url,
+                        mergeForTitle([title, desc])
                     ]),
                     titleDef);
                 break;
