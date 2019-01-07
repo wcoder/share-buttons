@@ -20,6 +20,11 @@
             IN_LINK_FORMAT = 'https://www.linkedin.com/shareArticle?mini=true&url={0}&title={1}&summary={2}&source={0}',
             PI_LINK_FORMAT = 'https://pinterest.com/pin/create/button/?url={0}&media={0}&description={1}',
             SK_LINK_FORMAT = 'https://web.skype.com/share?url={0}&source=button&text={1}',
+            WA_LINK_FORMAT = 'whatsapp://send?text={0}%20{1}',
+            OK_LINK_FORMAT = 'https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl={0}',
+            TU_LINK_FORMAT = 'https://www.tumblr.com/widgets/share/tool?posttype=link&title={0}&caption={0}&content={1}&canonicalUrl={1}&shareSource=tumblr_share_button',
+            HN_LINK_FORMAT = 'https://news.ycombinator.com/submitlink?t={0}&u={1}',
+            XI_LINK_FORMAT = 'https://www.xing.com/app/user?op=share;url={0};title={1}',
             MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
             FB_CLASS_NAME = 'fb',
             VK_CLASS_NAME = 'vk',
@@ -31,7 +36,13 @@
             IN_CLASS_NAME = 'in',
             PI_CLASS_NAME = 'pi',
             SK_CLASS_NAME = 'sk',
-            MAIL_CLASS_NAME = 'mail';
+            WA_CLASS_NAME = 'wa',
+            OK_CLASS_NAME = 'ok',
+            TU_CLASS_NAME = 'tu',
+            HN_CLASS_NAME = 'hn',
+            XI_CLASS_NAME = 'xi',
+            MAIL_CLASS_NAME = 'mail',
+            PRINT_CLASS_NAME = 'print';
 
         /**
          * Method for get string in the special format by arguments
@@ -251,6 +262,48 @@
                     titleDef);
                 break;
 
+            case WA_CLASS_NAME:
+                popupCenter(
+                    stringFormat(WA_LINK_FORMAT, [
+                        mergeForTitle([title, desc]),
+                        url
+                    ]),
+                    titleDef);
+                break;
+
+            case OK_CLASS_NAME:
+                popupCenter(
+                    stringFormat(OK_LINK_FORMAT, [ url ]),
+                    titleDef);
+                break;
+
+            case TU_CLASS_NAME:
+                popupCenter(
+                    stringFormat(TU_LINK_FORMAT, [
+                        mergeForTitle([title, desc]),
+                        url
+                    ]),
+                    titleDef);
+                break;
+
+            case HN_CLASS_NAME:
+                popupCenter(
+                    stringFormat(HN_LINK_FORMAT, [
+                        mergeForTitle([title, desc]),
+                        url
+                    ]),
+                    titleDef);
+                break;
+
+            case XI_CLASS_NAME:
+                popupCenter(
+                    stringFormat(XI_LINK_FORMAT, [
+                        url,
+                        mergeForTitle([title, desc])
+                    ]),
+                    titleDef);
+                break;
+
             case MAIL_CLASS_NAME:
                 if (title.length > 0 && desc.length > 0) {
                     text = mergeForTitle([title, desc]);
@@ -263,6 +316,10 @@
                 }
 
                 location.href = stringFormat(MAIL_LINK_FORMAT, [title, titleDef, text, url]);
+                break;
+
+            case PRINT_CLASS_NAME:
+                window.print();
                 break;
 
             default:
