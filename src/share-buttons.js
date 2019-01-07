@@ -20,6 +20,7 @@
             IN_LINK_FORMAT = 'https://www.linkedin.com/shareArticle?mini=true&url={0}&title={1}&summary={2}&source={0}',
             PI_LINK_FORMAT = 'https://pinterest.com/pin/create/button/?url={0}&media={0}&description={1}',
             SK_LINK_FORMAT = 'https://web.skype.com/share?url={0}&source=button&text={1}',
+            WA_LINK_FORMAT = 'whatsapp://send?text={0}%20{1}',
             MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
             FB_CLASS_NAME = 'fb',
             VK_CLASS_NAME = 'vk',
@@ -31,6 +32,7 @@
             IN_CLASS_NAME = 'in',
             PI_CLASS_NAME = 'pi',
             SK_CLASS_NAME = 'sk',
+            WA_CLASS_NAME = 'wa',
             MAIL_CLASS_NAME = 'mail';
 
         /**
@@ -247,6 +249,15 @@
                     stringFormat(SK_LINK_FORMAT, [
                         url,
                         mergeForTitle([title, desc])
+                    ]),
+                    titleDef);
+                break;
+
+            case WA_CLASS_NAME:
+                popupCenter(
+                    stringFormat(WA_LINK_FORMAT, [
+                        mergeForTitle([title, desc]),
+                        url
                     ]),
                     titleDef);
                 break;
