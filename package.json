@@ -20,8 +20,8 @@
   },
   "homepage": "https://wcoder.github.io/share-buttons",
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-uglify": "^3.0.1"
+    "gulp": "^4.0.2",
+    "gulp-uglify": "^3.0.2"
   },
   "main": "dist/share-buttons.js",
   "dependencies": {},
