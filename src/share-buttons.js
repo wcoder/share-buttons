@@ -1,5 +1,11 @@
-(function (w, d) {
-    'use strict';
+(function (global, factory) {
+	typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+	typeof define === 'function' && define.amd ? define(factory) :
+	(global = global || self, global.ShareButtons = factory());
+}(this, function () { 'use strict';
+    
+    var w = window;
+    var d = w.document;
 
     /**
      * Class to display the buttons of social networks.
@@ -350,6 +356,13 @@
     }
 
     // start
-    new ShareButtons().i();
+    var shareButtons = new ShareButtons();
+    shareButtons.i();
 
-}(window, document));
+    return { 
+        update: function () { 
+            shareButtons.i(); 
+        }
+    };
+
+}));

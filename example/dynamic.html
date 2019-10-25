@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+
+    <title>Test page for sharing</title>
+    <meta name="description" content="Page description" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <style>
+        /* Few styles :) */
+        .share-btn > a {
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 12px;
+            font-family: Verdana, Arial;
+        }
+        .share-btn > a:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Share this page with:</p>
+
+    <!-- data-url="" data-title="" data-desc="" -->
+
+
+    <div class="share-btn" data-url="https://github.com/wcoder/share-buttons">
+    </div>
+
+    <script src="../src/share-buttons.js"></script>
+    <script>
+        var social = [
+            {id: 'vk', className: 'btn-vk', icon: 'fab fa-vk', name: 'VK'},
+            {id: 'fb', className: 'btn-facebook', icon: 'fab fa-facebook-square', name: 'Facebook'},
+            {id: 'tw', className: 'btn-twitter', icon: 'fab fa-twitter', name: 'Twitter'},
+            {id: 'tg', className: 'btn-telegram', icon: 'fab fa-telegram', name: 'Telegram'},
+            {id: 'pk', className: 'btn-pocket', icon: 'fab fa-get-pocket', name: 'Pocket'},
+            {id: 're', className: 'btn-reddit', icon: 'fab fa-reddit', name: 'Reddit'},
+            {id: 'ev', className: 'btn-evernote', icon: 'far fa-sticky-note', name: 'Evernote'},
+            {id: 'in', className: 'btn-linkedin', icon: 'fab fa-linkedin', name: 'LinkedIn'},
+            {id: 'pi', className: 'btn-pinterest', icon: 'fab fa-pinterest', name: 'Pinterest'},
+            {id: 'sk', className: 'btn-skype', icon: 'fab fa-skype', name: 'Skype'},
+            {id: 'wa', className: 'btn-whatsapp', icon: 'fab fa-whatsapp', name: 'WhatsApp'},
+            {id: 'ok', className: 'btn-ok', icon: 'fab fa-odnoklassniki', name: 'Odnoklassniki'},
+            {id: 'tu', className: 'btn-tumblr', icon: 'fab fa-tumblr', name: 'Tumblr'},
+            {id: 'hn', className: 'btn-hn', icon: 'fab fa-hacker-news', name: 'Hacker News'},
+            {id: 'xi', className: 'btn-xing', icon: 'fab fa-xing', name: 'Xing'},
+            {id: 'mail', className: 'btn-mail', icon: 'fas fa-at', name: 'EMail'},
+            {id: 'btn-print', className: 'print', icon: 'fas fa-print', name: 'Print'},
+        ]
+        var shareBtnContainer = document.getElementsByClassName('share-btn')[0];
+        for (var i = 0; i < social.length; i++) {
+            var s = social[i];
+            shareBtnContainer.innerHTML += '<a class="' + s.className + '" data-id="' + s.id + '">' +
+                '<i class="' + s.icon + '"></i> ' + s.name + '</a>';
+        }    
+
+        window.ShareButtons.update();
+    </script>
+</body>
+</html>
