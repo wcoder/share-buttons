@@ -28,7 +28,7 @@ include `share-buttons.js` in the end of page:
 <script src="<path>/dist/share-buttons.js"></script>
 ```
 
-Paste this html on the page:
+Paste this HTML on the page:
 
 ``` html
 <div class="share-btn">
@@ -110,4 +110,4 @@ If your using [Font-Awesome](https://github.com/FortAwesome/Font-Awesome):
 
 ----
 
-&copy; 2015 - 2019 Yauheni Pakala
+&copy; 2015 - 2020 Yauheni Pakala
