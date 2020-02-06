@@ -11,7 +11,7 @@
      * Class to display the buttons of social networks.
      *
      * @author Yauheni Pakala <https://wcoder.github.io>
-     * @version 1.2
+     * @version 1.5
      * @license MIT
      */
     function ShareButtons() {
