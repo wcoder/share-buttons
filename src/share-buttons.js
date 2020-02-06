@@ -11,7 +11,7 @@
      * Class to display the buttons of social networks.
      *
      * @author Yauheni Pakala <https://wcoder.github.io>
-     * @version 1.2
+     * @version 1.5
      * @license MIT
      */
     function ShareButtons() {
@@ -31,7 +31,7 @@
             TU_LINK_FORMAT = 'https://www.tumblr.com/widgets/share/tool?posttype=link&title={0}&caption={0}&content={1}&canonicalUrl={1}&shareSource=tumblr_share_button',
             HN_LINK_FORMAT = 'https://news.ycombinator.com/submitlink?t={0}&u={1}',
             XI_LINK_FORMAT = 'https://www.xing.com/app/user?op=share;url={0};title={1}',
-            MAIL_LINK_FORMAT = 'mailto:?Subject={0}{1}&body={2}{3}',
+            MAIL_LINK_FORMAT = 'mailto:?subject={0}&body={1}',
             FB_CLASS_NAME = 'fb',
             VK_CLASS_NAME = 'vk',
             TW_CLASS_NAME = 'tw',
@@ -314,14 +314,11 @@
                 if (title.length > 0 && desc.length > 0) {
                     text = mergeForTitle([title, desc]);
                 }
-                if (text.length > 0) {
-                    text = text + ' / ';
-                }
-                if (title.length > 0) {
-                    title += ' / ';
+                if (url.length > 0) {
+                    text = text + ' / ' + url;
                 }
 
-                location.href = stringFormat(MAIL_LINK_FORMAT, [title, titleDef, text, url]);
+                location.href = stringFormat(MAIL_LINK_FORMAT, [title, text]);
                 break;
 
             case PRINT_CLASS_NAME:
