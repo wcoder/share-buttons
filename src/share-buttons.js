@@ -11,7 +11,7 @@
      * Class to display the buttons of social networks.
      *
      * @author Yauheni Pakala <https://wcoder.github.io>
-     * @version 1.5
+     * @version 1.6
      * @license MIT
      */
     function ShareButtons() {
@@ -188,7 +188,7 @@
             switch (id) {
             case FB_CLASS_NAME:
                 popupCenter(
-                    stringFormat(FB_LINK_FORMAT, [url,title]),
+                    stringFormat(FB_LINK_FORMAT, [url, title]),
                     titleDef);
                 break;
 
