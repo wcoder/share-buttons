@@ -16,7 +16,7 @@
      */
     function ShareButtons() {
 
-        var FB_LINK_FORMAT = 'https://www.facebook.com/sharer/sharer.php?u={0}',
+        var FB_LINK_FORMAT = 'https://www.facebook.com/sharer/sharer.php?u={0}&quote={1}',
             VK_LINK_FORMAT = 'https://vk.com/share.php?url={0}&title={1}',
             TW_LINK_FORMAT = 'https://twitter.com/intent/tweet?url={0}&text={1}',
             TG_LINK_FORMAT = 'https://t.me/share/url?url={0}&text={1}',
@@ -188,7 +188,7 @@
             switch (id) {
             case FB_CLASS_NAME:
                 popupCenter(
-                    stringFormat(FB_LINK_FORMAT, [url]),
+                    stringFormat(FB_LINK_FORMAT, [url,title]),
                     titleDef);
                 break;
 
