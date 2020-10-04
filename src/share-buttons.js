@@ -26,7 +26,7 @@
             IN_LINK_FORMAT = 'https://www.linkedin.com/shareArticle?mini=true&url={0}&title={1}&summary={2}&source={0}',
             PI_LINK_FORMAT = 'https://pinterest.com/pin/create/button/?url={0}&media={0}&description={1}',
             SK_LINK_FORMAT = 'https://web.skype.com/share?url={0}&source=button&text={1}',
-            WA_LINK_FORMAT = 'whatsapp://send?text={0}%20{1}',
+            WA_LINK_FORMAT = 'https://wa.me/?text={0}%20{1}',
             OK_LINK_FORMAT = 'https://connect.ok.ru/dk?st.cmd=WidgetSharePreview&service=odnoklassniki&st.shareUrl={0}',
             TU_LINK_FORMAT = 'https://www.tumblr.com/widgets/share/tool?posttype=link&title={0}&caption={0}&content={1}&canonicalUrl={1}&shareSource=tumblr_share_button',
             HN_LINK_FORMAT = 'https://news.ycombinator.com/submitlink?t={0}&u={1}',
