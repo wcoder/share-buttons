@@ -21,7 +21,7 @@
             TW_LINK_FORMAT = 'https://twitter.com/intent/tweet?url={0}&text={1}',
             TG_LINK_FORMAT = 'https://t.me/share/url?url={0}&text={1}',
             POCKET_LINK_FORMAT = 'https://getpocket.com/edit?url={0}&title={1}',
-            RE_LINK_FORMAT = 'https://reddit.com/submit/?url={0}',
+            RE_LINK_FORMAT = 'https://reddit.com/submit?url={0}&title={1}',
             EV_LINK_FORMAT = 'https://www.evernote.com/clip.action?url={0}&t={1}',
             IN_LINK_FORMAT = 'https://www.linkedin.com/shareArticle?mini=true&url={0}&title={1}&summary={2}&source={0}',
             PI_LINK_FORMAT = 'https://pinterest.com/pin/create/button/?url={0}&media={0}&description={1}',
@@ -230,7 +230,7 @@
 
             case RE_CLASS_NAME:
                 popupCenter(
-                    stringFormat(RE_LINK_FORMAT, [url]),
+                    stringFormat(RE_LINK_FORMAT, [url, title]),
                     titleDef);
                 break;
 
