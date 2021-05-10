@@ -24,7 +24,6 @@
     "gulp-uglify": "^3.0.2"
   },
   "main": "dist/share-buttons.js",
-  "dependencies": {},
   "keywords": [
     "social",
     "buttons",
