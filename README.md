@@ -96,7 +96,7 @@ Styles - full customization.
 
 ## Examples
 
-If your using [Font-Awesome](https://github.com/FortAwesome/Font-Awesome):
+If you are using [Font-Awesome](https://github.com/FortAwesome/Font-Awesome):
 
 ```html
 <div class="share-btn" data-url="https://..." data-title="..." data-desc="...">
@@ -107,6 +107,9 @@ If your using [Font-Awesome](https://github.com/FortAwesome/Font-Awesome):
     <a class="btn-mail" data-id="mail"><i class="fas fa-at"></i> EMail</a>
 </div>
 ```
+
+You can also use [simple-icons](https://github.com/simple-icons/simple-icons).
+
 
 ----
 
