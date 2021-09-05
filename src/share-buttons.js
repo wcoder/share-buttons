@@ -9,10 +9,6 @@
 
     /**
      * Class to display the buttons of social networks.
-     *
-     * @author Yauheni Pakala <https://wcoder.github.io>
-     * @version 1.6
-     * @license MIT
      */
     function ShareButtons() {
 
@@ -140,12 +136,13 @@
          * Counter for generated cache's share button's index.
          * This to reference added share buttons' listeners.
          */
-        var refCounter = 0
+        var refCounter = 0;
+
         /**
          * List of added listeners' for share buttons.
          * This to index listeners' for update or removal purpose.
          */
-        var listenersCache = {}
+        var listenersCache = {};
 
        /**
         * Method for detaching event to the element

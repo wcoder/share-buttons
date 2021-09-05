@@ -16,7 +16,7 @@ Simple, powerful, customizable and super lightweight (1 Kb Gzip) social buttons 
 
 ## Install
 
-NPM:
+### Available in NPM
 
 ```sh
 npm i share-buttons
@@ -26,6 +26,12 @@ include `share-buttons.js` in the end of page:
 
 ``` html
 <script src="<path>/dist/share-buttons.js"></script>
+```
+
+### Getting the library from CDN
+
+```html
+<script src="//cdn.jsdelivr.net/npm/share-buttons/dist/share-buttons.js"></script>
 ```
 
 Paste this HTML on the page:
@@ -113,4 +119,4 @@ You can also use [simple-icons](https://github.com/simple-icons/simple-icons).
 
 ----
 
-&copy; 2015 - 2020 Yauheni Pakala
+&copy; 2015+ Yauheni Pakala and [contributors](https://github.com/wcoder/share-buttons/graphs/contributors) | MIT
