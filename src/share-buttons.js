@@ -106,6 +106,7 @@
         var prepareLink = function (el, options) {
             options.id = getAttribute(el, 'data-id');
             if (options.id) {
+                removeEventListener(el, 'click');
                 addEventListener(el, 'click', options);
             }
         };
@@ -135,6 +136,34 @@
             return getAttribute(share, 'data-desc') || (metaDesc && getAttribute(metaDesc, 'content')) || ' ';
         };
 
+        /**
+         * Counter for generated cache's share button's index.
+         * This to reference added share buttons' listeners.
+         */
+        var refCounter = 0
+        /**
+         * List of added listeners' for share buttons.
+         * This to index listeners' for update or removal purpose.
+         */
+        var listenersCache = {}
+
+       /**
+        * Method for detaching event to the element
+        * @param {HTMLElement} el
+        * @param {string} eventName
+        */
+        var removeEventListener = function (el, eventName) {
+            var cachedRef = el.getAttribute('data-sharebtn-ref');
+
+            if (cachedRef) {
+                if (el.removeEventListener) {
+                    el.removeEventListener(eventName, listenersCache[cachedRef]);
+                } else {
+                    el.detachEvent('on' + eventName, listenersCache[cachedRef+'ie']);
+                }
+            }
+        };
+
        /**
         * Method for attaching event to the element
         * @param {HTMLElement} el
@@ -145,13 +174,23 @@
             var handler = function () {
                 share(opt.id, opt.url, opt.title, opt.desc);
             };
+            var iehandler = function () {
+                handler.call(el);
+            };
+            var cachedRef = el.getAttribute('data-sharebtn-ref');
+
+            if (!cachedRef) {
+                cachedRef = ++refCounter;
+                el.setAttribute('data-sharebtn-ref', cachedRef);
+            }
+
+            listenersCache[cachedRef] = handler;
+            listenersCache[cachedRef+'ie'] = iehandler;
 
             if (el.addEventListener) {
                 el.addEventListener(eventName, handler);
             } else {
-                el.attachEvent('on' + eventName, function () {
-                    handler.call(el);
-                });
+                el.attachEvent('on' + eventName, iehandler);
             }
         };
 
