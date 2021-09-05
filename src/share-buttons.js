@@ -106,6 +106,7 @@
         var prepareLink = function (el, options) {
             options.id = getAttribute(el, 'data-id');
             if (options.id) {
+                removeEventListener(el, 'click');
                 addEventListener(el, 'click', options);
             }
         };
@@ -147,6 +148,23 @@
         var listenersCache = {}
 
        /**
+        * Method for detaching event to the element
+        * @param {HTMLElement} el
+        * @param {string} eventName
+        */
+        var removeEventListener = function (el, eventName) {
+            var cachedRef = el.getAttribute('data-sharebtn-ref');
+
+            if (cachedRef) {
+                if (el.removeEventListener) {
+                    el.removeEventListener(eventName, listenersCache[cachedRef]);
+                } else {
+                    el.detachEvent('on' + eventName, listenersCache[cachedRef+'ie']);
+                }
+            }
+        };
+
+       /**
         * Method for attaching event to the element
         * @param {HTMLElement} el
         * @param {string} eventName
@@ -159,21 +177,15 @@
             var iehandler = function () {
                 handler.call(el);
             };
-            var cachedRef = el.getAttribute('data-sharebtn-ref')
+            var cachedRef = el.getAttribute('data-sharebtn-ref');
 
-            if (cachedRef) {
-                if (el.removeEventListener) {
-                    el.removeEventListener(eventName, listenersCache[cachedRef]);
-                } else {
-                    el.detachEvent('on' + eventName, listenersCache[cachedRef+'ie']);
-                }
-            } else {
-                cachedRef = ++refCounter
+            if (!cachedRef) {
+                cachedRef = ++refCounter;
                 el.setAttribute('data-sharebtn-ref', cachedRef);
             }
 
-            listenersCache[cachedRef] = handler
-            listenersCache[cachedRef+'ie'] = iehandler
+            listenersCache[cachedRef] = handler;
+            listenersCache[cachedRef+'ie'] = iehandler;
 
             if (el.addEventListener) {
                 el.addEventListener(eventName, handler);
