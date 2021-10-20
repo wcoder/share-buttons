@@ -82,7 +82,7 @@
             if(!navigator.clipboard) {
                 var buttons = document.querySelectorAll(`[data-id="${COPY_CLASS_NAME}"]`);
                 for (i = 0; i < buttons.length; i++) {
-                    buttons[i].hidden = true;
+                    buttons[i].style.display = 'none';
                 }
                 console.log('navigator.clipboard(): This feature is not supported on this browser or operating system.');
             }
@@ -91,7 +91,7 @@
             if(!navigator.canShare) {
                 var buttons = document.querySelectorAll(`[data-id="${SHARESHEET_CLASS_NAME}"]`);
                 for (i = 0; i < buttons.length; i++) {
-                    buttons[i].hidden = true;
+                    buttons[i].style.display = 'none';
                 }
                 console.log('navigator.share(): This feature is not supported on this browser or operating system.');
             }
