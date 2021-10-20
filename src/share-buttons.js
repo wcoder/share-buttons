@@ -45,7 +45,8 @@
             XI_CLASS_NAME = 'xi',
             MAIL_CLASS_NAME = 'mail',
             PRINT_CLASS_NAME = 'print',
-            COPY_CLASS_NAME = 'copy';
+            COPY_CLASS_NAME = 'copy',
+            SHARESHEET_CLASS_NAME = 'shareSheet';
 
         /**
          * Method for get string in the special format by arguments
@@ -84,6 +85,15 @@
                     buttons[i].hidden = true;
                 }
                 console.log('navigator.clipboard(): This feature is not supported on this browser or operating system.');
+            }
+
+            // Check if navigator.share is supported. If not, hide all shareSheet buttons.
+            if(!navigator.canShare) {
+                var buttons = document.querySelectorAll(`[data-id="${SHARESHEET_CLASS_NAME}"]`);
+                for (i = 0; i < buttons.length; i++) {
+                    buttons[i].hidden = true;
+                }
+                console.log('navigator.share(): This feature is not supported on this browser or operating system.');
             }
         };
 
@@ -381,6 +391,21 @@
 
             case COPY_CLASS_NAME:
                 navigator.clipboard.writeText(decode(url));
+                break;
+
+            case SHARESHEET_CLASS_NAME:
+                text = decode(mergeForTitle([title, desc]));
+                var shareData = {
+                    title: text,
+                    text: text,
+                    url: decode(url),
+                };
+
+                navigator.share(shareData).then(() => {
+                    console.log('navigator.share(): Success');
+                }).catch((err) => {
+                    console.log('navigator.share(): Error', err);
+                });
                 break;
 
             default:
