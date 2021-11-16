@@ -46,7 +46,9 @@
             MAIL_CLASS_NAME = 'mail',
             PRINT_CLASS_NAME = 'print',
             COPY_CLASS_NAME = 'copy',
-            SHARESHEET_CLASS_NAME = 'shareSheet';
+            SHARE_CLASS_NAME = 'share',
+            SHARE_LOG_TAG = 'navigator.share(): ',
+            NOT_SUPPORTED_MESSAGE = 'This feature is not supported on this browser or operating system.';
 
         /**
          * Method for get string in the special format by arguments
@@ -69,6 +71,25 @@
         };
 
         /**
+         * Log method for debug
+         * @param {string} text log message
+         */
+        var log = function (text) {
+            w.console.log(text);
+        };
+
+        /**
+         * Set display=none for elements by selector
+         * @param {string} selector selector of elements
+         */
+        var hideAll = function (selector) {
+            var elements = d.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].style.display = 'none';
+            }
+        };
+
+        /**
          * Method for initialize class for all elements
          */
         this.i = function () {
@@ -78,22 +99,16 @@
                 initForElement(share[i]);
             }
 
-            // Check if navigator.clipboard is supported. If not, hide all shareSheet buttons.
-            if(!navigator.clipboard) {
-                var buttons = document.querySelectorAll(`[data-id="${COPY_CLASS_NAME}"]`);
-                for (i = 0; i < buttons.length; i++) {
-                    buttons[i].style.display = 'none';
-                }
-                console.log('navigator.clipboard(): This feature is not supported on this browser or operating system.');
+            // Check if navigator.clipboard is supported. If not, hide all share-buttons.
+            if (!w.navigator.clipboard) {
+                hideAll('[data-id="' + COPY_CLASS_NAME + '"]');
+                log('navigator.clipboard(): ' + NOT_SUPPORTED_MESSAGE);
             }
 
-            // Check if navigator.share is supported. If not, hide all shareSheet buttons.
-            if(!navigator.canShare) {
-                var buttons = document.querySelectorAll(`[data-id="${SHARESHEET_CLASS_NAME}"]`);
-                for (i = 0; i < buttons.length; i++) {
-                    buttons[i].style.display = 'none';
-                }
-                console.log('navigator.share(): This feature is not supported on this browser or operating system.');
+            // Check if navigator.share is supported. If not, hide all share-buttons.
+            if (!w.navigator.canShare) {
+                hideAll('[data-id="' + SHARE_CLASS_NAME + '"]');
+                log(SHARE_LOG_TAG + NOT_SUPPORTED_MESSAGE);
             }
         };
 
@@ -132,7 +147,7 @@
          * @param {HTMLElement} share
          */
         var getUrl = function (share) {
-            return getAttribute(share, 'data-url') || location.href || ' ';
+            return getAttribute(share, 'data-url') || w.location.href || ' ';
         };
 
         /**
@@ -382,18 +397,18 @@
                     text = text + ' / ' + url;
                 }
 
-                location.href = stringFormat(MAIL_LINK_FORMAT, [title, text]);
+                w.location.href = stringFormat(MAIL_LINK_FORMAT, [title, text]);
                 break;
 
             case PRINT_CLASS_NAME:
-                window.print();
+                w.print();
                 break;
 
             case COPY_CLASS_NAME:
-                navigator.clipboard.writeText(decode(url));
+                w.navigator.clipboard.writeText(decode(url));
                 break;
 
-            case SHARESHEET_CLASS_NAME:
+            case SHARE_CLASS_NAME:
                 text = decode(mergeForTitle([title, desc]));
                 var shareData = {
                     title: text,
@@ -401,11 +416,11 @@
                     url: decode(url),
                 };
 
-                navigator.share(shareData).then(() => {
-                    console.log('navigator.share(): Success');
-                }).catch((err) => {
-                    console.log('navigator.share(): Error', err);
-                });
+                w.navigator.share(shareData)
+                    .then(function () {})
+                    .catch(function (err) {
+                        log(SHARE_LOG_TAG + 'Error', err);
+                    });
                 break;
 
             default:

@@ -1,6 +1,6 @@
 {
   "name": "share-buttons",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Simple social buttons for your site.",
   "directories": {
     "example": "example"
@@ -45,6 +45,8 @@
     "hackernews",
     "xing",
     "email",
-    "print"
+    "print",
+    "copy",
+    "webshare"
   ]
 }
