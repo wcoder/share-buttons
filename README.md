@@ -14,6 +14,10 @@ Simple, powerful, customizable and super lightweight (1 Kb Gzip) social buttons 
 * Android
 * iOS
 
+Copy to clipboard is not supported on IE, see [browser compatibility for more information](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share#browser_compatibility)
+
+WebShare API is only partially supported, see [browser compatibility for more information](https://developer.mozilla.org/en-US/docs/Web/API/Navigator/share#browser_compatibility)
+
 ## Install
 
 ### Available in NPM
@@ -83,6 +87,8 @@ Hacker News | hn
 Xing      | xi
 EMail     | mail
 Print     | print
+Copy     | copy
+WebShare API     | shareSheet
 
 ## Customizing
 
