@@ -96,11 +96,11 @@ Custom 'url', 'title', 'description':
 
 ``` html
 <div class="share-btn" data-url="https://..." data-title="..." data-desc="...">
-    <a class="btn-vk" data-id="vk">VK</a>
-    <a class="btn-facebook" data-id="fb">Facebook</a>
-    <a class="btn-twitter" data-id="tw">Twitter</a>
-    <a class="btn-telegram" data-id="tg">Telegram</a>
-    <a class="btn-mail" data-id="mail">EMail</a>
+    <a data-id="vk">VK</a>
+    <a data-id="fb">Facebook</a>
+    <a data-id="tw">Twitter</a>
+    <a data-id="tg">Telegram</a>
+    <a data-id="mail">EMail</a>
 </div>
 ```
 
@@ -112,11 +112,11 @@ If you are using [Font-Awesome](https://github.com/FortAwesome/Font-Awesome):
 
 ```html
 <div class="share-btn" data-url="https://..." data-title="..." data-desc="...">
-    <a class="btn-vk" data-id="vk"><i class="fab fa-vk"></i> VK</a>
-    <a class="btn-facebook" data-id="fb"><i class="fab fa-facebook-square"></i> Facebook</a>
-    <a class="btn-twitter" data-id="tw"><i class="fab fa-twitter"></i> Twitter</a>
-    <a class="btn-telegram" data-id="tg"><i class="fab fa-telegram"></i> Telegram</a>
-    <a class="btn-mail" data-id="mail"><i class="fas fa-at"></i> EMail</a>
+    <a data-id="vk"><i class="fab fa-vk"></i> VK</a>
+    <a data-id="fb"><i class="fab fa-facebook-square"></i> Facebook</a>
+    <a data-id="tw"><i class="fab fa-twitter"></i> Twitter</a>
+    <a data-id="tg"><i class="fab fa-telegram"></i> Telegram</a>
+    <a data-id="mail"><i class="fas fa-at"></i> EMail</a>
 </div>
 ```
 
