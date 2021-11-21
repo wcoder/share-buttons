@@ -42,11 +42,11 @@ Paste this HTML on the page:
 
 ``` html
 <div class="share-btn">
-    <a class="btn-vk" data-id="vk">VK</a>
-    <a class="btn-facebook" data-id="fb">Facebook</a>
-    <a class="btn-twitter" data-id="tw">Twitter</a>
-    <a class="btn-telegram" data-id="tg">Telegram</a>
-    <a class="btn-mail" data-id="mail">EMail</a>
+    <a data-id="vk">VK</a>
+    <a data-id="fb">Facebook</a>
+    <a data-id="tw">Twitter</a>
+    <a data-id="tg">Telegram</a>
+    <a data-id="mail">EMail</a>
 </div>
 ```
 
